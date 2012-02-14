@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 # Google API
 gem 'google-api-client'
+
+# Twitter Bootstrap for Ruby
+gem 'bootstrap'
