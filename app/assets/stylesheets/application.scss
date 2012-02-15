@@ -1,0 +1,23 @@
+@import 'bootstrap';
+@import "bootstrap-responsive";
+
+$primaryButtonBackground: #ff0000 !default;
+$baseFontSize: 15px;
+
+body {
+  padding: 30px;
+}
+label {
+  display: inline-block;
+  line-height: 40px;
+  position: relative;
+  top: -5px;
+}
+h1 {
+  padding: 10px 0;
+}
+
+.listing td, .listing th {
+  border: 1px #ddd solid;
+  padding: 5px;
+}
