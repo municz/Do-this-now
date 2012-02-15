@@ -18,6 +18,9 @@ group :assets do
   gem 'therubyracer'
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'bootstrap-sass'
+  gem 'twitter_bootstrap_form_for'
 end
 
 gem 'jquery-rails'
@@ -39,6 +42,3 @@ gem 'jquery-rails'
 
 # Google API
 gem 'google-api-client'
-
-# Twitter Bootstrap for Ruby
-gem 'bootstrap'
