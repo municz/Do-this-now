@@ -1,1 +1,14 @@
-<h1>Hello world</h1>
+<h1>Hello</h1>
+<p>Sign in, please!</p>
+
+<%= form_tag "sign_in/login" do %>
+
+<%= label_tag :email, "E-mail" %>
+<%= email_field_tag :email, "@" %><br>
+
+<%= label_tag :password, "Password" %>
+<%= password_field_tag :password %><br>
+
+<%= submit_tag "Lets go get 'em!", :class => "btn-primary" %>
+
+<% end %>
