@@ -9,6 +9,9 @@ Dothisnow::Application.routes.draw do
   post "/sign_in/login", :to => "hello#login"
   get "/sign_in/login" => redirect("/sign_in")
   get "/logout", :to => "hello#logout", :as => :logout_path
+  
+  get "/tasks/:id/move_up", :to => "tasks#move_up", :as => :move_up
+  get "/tasks/:id/move_down", :to => "tasks#move_down", :as => :move_down
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

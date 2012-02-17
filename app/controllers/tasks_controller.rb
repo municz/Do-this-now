@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.order(:priority).all
+    @tasks = Task.order(:priority).where(:user_id => current_user.id).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
-    @task = Task.find(params[:id])
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.find(params[:id])
+    @task = Task.where(:id => params[:id].first, :user_id => current_user.id).first
   end
 
   # POST /tasks
@@ -44,7 +44,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        @task.priority = @task.id and @task.save
+        @task.priority = @task.id and @task.user_id = current_user.id and @task.save
          
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
@@ -58,7 +58,7 @@ class TasksController < ApplicationController
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
-    @task = Task.find(params[:id])
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
 
     respond_to do |format|
       if @task.update_attributes(params[:task])
@@ -74,7 +74,7 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
-    @task = Task.find(params[:id])
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
     @task.destroy
 
     respond_to do |format|
@@ -82,4 +82,11 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def move_down
+  end
+  
+  def move_up
+  end
+  
 end
