@@ -12,8 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email, "E-mail" %><br />
-    <%= f.email_field :email %>
+    <%= f.label :email, "E-mail" %>
+    <%= f.email_field :email %><br>
+
+    <%= f.label :password, "Password" %>
+    <%= f.password :password %>
   </div>
   <div class="actions">
     <%= f.submit :class => 'btn-primary' %>

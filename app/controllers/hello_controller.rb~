@@ -7,7 +7,7 @@ class HelloController < ApplicationController
     plus = client.discovered_api('plus')
     response = client.execute(
       plus.activities.list,
-      {'userId' => 'temistokles@gmail.com', 'collection' => 'public'}
+      {'userId' => 'me', 'collection' => 'public'}
     )
   end
 

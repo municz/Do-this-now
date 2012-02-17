@@ -12,9 +12,13 @@ label {
   line-height: 40px;
   position: relative;
   top: -5px;
+  width: 100px;
 }
 h1 {
   padding: 10px 0;
+}
+input[type=submit] {
+  margin-left: 120px;
 }
 
 .listing td, .listing th {
