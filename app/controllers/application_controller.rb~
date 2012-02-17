@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate!
 
-  helper_method :current_user, :is_admin?, :signed_in?
+  helper_method :current_user, :is_admin?
 
   def signed_in?
    !!current_user
