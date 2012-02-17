@@ -3,19 +3,26 @@ class ApplicationController < ActionController::Base
 
   before_filter :authenticate!
 
-  helper_method :current_user
+  helper_method :current_user, :is_admin?
 
   def signed_in?
-    !!current_user
+   !!current_user
   end
 
   def current_user
-    User.where(:id => session[:user_id]).first if session[:user_id]
+    @current_user ||= User.where(:id => session[:user_id]).first if session[:user_id]
+  end
+  
+  def is_admin?
+    session[:user_is_admin] == 1
   end
 
   def authenticate!
-    #session[:user_id] = rand(100)
     redirect_to :sign_in_path unless signed_in?
+  end
+  
+  def authorize_admin!
+    redirect_to :sign_in_path unless is_admin?
   end
 
 end

@@ -1,14 +1,17 @@
-<h1>Hello</h1>
+<h1>Hello, Anonymous</h1>
 <p>Sign in, please!</p>
 
+<% flash.each do |key, msg| %>
+  <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+  <%= content_tag :script, :type => "text/javascript" do -%>
+    setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+  <% end %>
+<% end %>
+
 <%= form_tag "sign_in/login" do %>
-
-<%= label_tag :email, "E-mail" %>
-<%= email_field_tag :email, "@" %><br>
-
-<%= label_tag :password, "Password" %>
-<%= password_field_tag :password %><br>
-
-<%= submit_tag "Lets go get 'em!", :class => "btn-primary" %>
-
+  <%= label_tag :email, "E-mail" %>
+  <%= email_field_tag :email, "@" %><br>
+  <%= label_tag :password, "Password" %>
+  <%= password_field_tag :password %><br>
+  <%= submit_tag "Lets go get 'em!", :class => "btn-primary" %>
 <% end %>

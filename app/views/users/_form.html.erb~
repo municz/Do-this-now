@@ -15,8 +15,15 @@
     <%= f.label :email, "E-mail" %>
     <%= f.email_field :email %><br>
 
-    <%= f.label :password, "Password" %>
-    <%= f.password :password %>
+    <% if is_admin? || current_user == @user %>
+      <%= f.label :password, "Password" %>
+      <%= f.password_field :password %><br>
+    <% end %>
+    
+    <% if is_admin? %>
+      <%= f.label :is_admin, "Is admin" %>
+      <%= f.check_box :is_admin %>
+    <% end %>  
   </div>
   <div class="actions">
     <%= f.submit :class => 'btn-primary' %>

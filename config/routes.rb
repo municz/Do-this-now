@@ -1,10 +1,11 @@
 Dothisnow::Application.routes.draw do
   resources :users
 
-  root :to => "hello#index"
+  #root :to => "hello#index"
 
   get "/sign_in", :to => "hello#index", :as => :sign_in_path 
   post "/sign_in/login", :to => "hello#login"
+  get "/sign_in/login" => redirect("/sign_in")
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

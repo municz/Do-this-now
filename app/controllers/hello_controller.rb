@@ -4,13 +4,15 @@ class HelloController < ApplicationController
   
   def login
   
-    #try to authenticate
     user = User.where(:email => params[:email], :password => params[:password]).first
     
     if user 
-      session[:user_id] = user.id
+      session[:user_id] = user.id 
+      session[:user_is_admin] = user.is_admin
+      redirect_to :sign_in_path
     else
-      redirect_to :sign_in_path, :notice => "Incorrect credentials!"
+      flash[:error] = "Incorrect credentials!"
+      redirect_to :sign_in_path
     end  
       
   end
