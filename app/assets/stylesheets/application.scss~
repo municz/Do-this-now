@@ -18,10 +18,13 @@ h1 {
   padding: 10px 0;
 }
 input[type=submit] {
-  margin-left: 150px;
+  margin-left: 120px;
 }
 
 .listing td, .listing th {
   border: 1px #ddd solid;
   padding: 5px;
+}
+.done {
+  color: #888;
 }

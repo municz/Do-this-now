@@ -11,10 +11,10 @@
   </tr>
 
 <% @tasks.each do |task| %>
-  <tr>
+  <tr <%= raw('class="done"') if task.done? %>>
     <td><%= task.priority %></td>
     <td><%= task.title %></td>
-    <td><%= task.done %></td>
+    <td><%= task.done? ? "[YES]" : "[NO]" %></td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>

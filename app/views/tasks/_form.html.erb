@@ -11,17 +11,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :priority %><br />
-    <%= f.number_field :priority %>
-  </div>
+  <% if @task.id %>
+    <div class="field">
+      <%= f.label :priority %><br />
+      <%= f.number_field :priority %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
     <%= f.label :done %><br />
-    <%= f.number_field :done %>
+    <%= f.check_box :done %>
   </div>
   <div class="actions">
     <%= f.submit %>

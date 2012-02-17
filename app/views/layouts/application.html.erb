@@ -9,6 +9,7 @@
 <body>
 
 <%= link_to "Login", :sign_in_path unless signed_in? %>
+<%= link_to "Tasks", :tasks if signed_in? %>
 <%= link_to "Users", :users if is_admin? %>
 <%= link_to "Logout", :logout_path if signed_in? %>
 

@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.order(:priority).all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,8 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
+        @task.priority = @task.id and @task.save
+         
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
