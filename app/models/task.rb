@@ -4,10 +4,31 @@ class Task < ActiveRecord::Base
     done != 0
   end
   
+  def move_task(direction = :up)
+  
+    #selection of the task which priority will be replaced
+    selectPriority = direction == :up ? "priority <= ?" : "priority >= ?"
+    order = direction == :up ? "priority" : "priority DESC"
+  
+    Task.transaction do
+      task_to_replace = Task.where(:user_id => user_id).where(selectPriority, priority).order(order).first
+      this_task = Task.where(:id => id).first
+      
+      old_priority = task_to_replace.priority
+      task_to_replace.priority = priority      
+      this_task.priority = old_priority
+      
+      this_task.save
+      task_to_replace.save
+    end       
+  end
+  
   def move_up
+    move_task(:up)
   end
   
   def move_down
+    move_task(:down)
   end
 
 end

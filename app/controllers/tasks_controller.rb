@@ -84,9 +84,18 @@ class TasksController < ApplicationController
   end
   
   def move_down
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
+    @task.move_down
+    
+    redirect_to :tasks  
   end
   
   def move_up
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
+    @task.move_up
+    @task.save  
+    
+    redirect_to :tasks
   end
   
 end
