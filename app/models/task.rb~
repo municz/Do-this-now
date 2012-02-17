@@ -1,0 +1,10 @@
+class Task < ActiveRecord::Base
+
+  def done?
+    done != 0
+  end
+  
+  def up
+  end
+
+end
