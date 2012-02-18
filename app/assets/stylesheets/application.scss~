@@ -45,10 +45,21 @@ input[type=submit] {
 .task-status {
   text-align: center;
 }
-.btn-primary {
+.btn-primary, .btn {
   padding: 7px 10px;
 }
 .task-list {
   width: 320px;
   height: 200px;
+}
+footer p {
+  color: #888;
+  line-height: 31px;
+  margin-top: -10px;
+  font-size: 12px;
+}
+footer p img {
+  position: relative;
+  top: +12px;
+  margin-right: 15px;
 }

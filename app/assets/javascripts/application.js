@@ -64,5 +64,18 @@ $(document).ready(function(){
       swapDone(next, current);
     }   
   });
+  
+  $('.toggle_status').live('ajax:success', function(){
+    var image = $('img', this);
+
+    if (image.attr("src") == "/images/pending.png"){
+      image.attr("src", "/images/done.png").attr("alt", "[YES]").attr("title", "Yes");
+      image.closest('tr').addClass('done');
+    }
+    else {
+      image.attr("src", "/images/pending.png").attr("alt", "[NO]").attr("title", "No");
+      image.closest('tr').removeClass('done');
+    }
+  });
 
 });

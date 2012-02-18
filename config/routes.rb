@@ -10,6 +10,7 @@ Dothisnow::Application.routes.draw do
   
   get "/tasks/:id/move_up", :to => "tasks#move_up", :as => :move_up
   get "/tasks/:id/move_down", :to => "tasks#move_down", :as => :move_down
+  get "/tasks/:id/toggle", :to => "tasks#toggle_status", :as => :toggle_status
   match "/tasks/add-task-list", :to => "tasks#new_from_list", :as => :new_task_list_path
   get "/tasks/do", :to => "tasks#do_tasks", :as => :do_tasks
   

@@ -61,8 +61,19 @@ $(document).ready(function(){
       current.html(nextHTML);
       next.html(currentHTML);
 
-      swapDone(previous, current);
+      swapDone(next, current);
     }   
+  });
+  
+  $('.toggle_status').live('ajax:success', function(){
+    var image = $('img', this);
+    alert(image.attr("src"));
+    if (image.attr("src") == "/images/pending.png"){
+      image.attr("src", "/images/done.png").attr("alt", "[YES]").attr("title", "Yes");
+      alert(1)
+    }
+    else {
+    }
   });
 
 });

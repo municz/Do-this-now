@@ -125,4 +125,12 @@ class TasksController < ApplicationController
     redirect_to :tasks
   end
   
+  def toggle_status
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
+    @task.done = @task.done==0 ? 1 : 0
+    @task.save  
+    
+    redirect_to :tasks
+  end
+  
 end

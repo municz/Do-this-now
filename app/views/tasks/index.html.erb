@@ -14,11 +14,12 @@
     <td><%= link_to "[DOWN]", move_down_url(:id => task.id), :remote => true, :class => "move_down" %></td>
     <td><%= task.title %></td>
     <td class="task-status">
-      <% if task.done? %>
-        <img src="/images/done.png" alt="[YES]" title="Yes">
-      <% else %>
-        <img src="/images/pending.png" alt="[NO]" title="No">
-      <% end %>
+      <%= link_to_if(task.done?, raw('<img src="/images/done.png" alt="[YES]" title="Yes">'),
+                     toggle_status_url(:id => task.id), :remote => true, :class => "toggle_status" ) do
+                       link_to(raw('<img src="/images/pending.png" alt="[NO]" title="No">'),
+                       toggle_status_url(:id => task.id), :remote => true, :class => "toggle_status" )
+          end
+      %>    
     </td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>

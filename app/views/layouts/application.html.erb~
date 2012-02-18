@@ -31,12 +31,19 @@
 </div>
 
 <div class="container">
-  <% flash.each do |key, msg| %>
-    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
-  <% end %>
-  
   <%= yield %>
+
+  <br><br>
+  <hr>
+  <footer>
+    <p>
+      <a rel="license" href="http://creativecommons.org/licenses/by/3.0/cz/">
+        <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/cz/88x31.png" />
+      </a>: Copyleft 2012, Temistokles
+    </p>
+  </footer>
 </div>  
+
 
 </body>
 </html>

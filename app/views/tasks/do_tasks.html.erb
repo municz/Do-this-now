@@ -15,11 +15,11 @@
   <p>No tasks left, bro. Create some.</p>
   <br><br>
   
-  <%= link_to 'New Task List', :new_task_list_path, :class => "btn btn-primary" %>
-  <%= link_to 'New Task', new_task_path, :class => "btn" %>
+  <%= link_to raw('New <b>Task List</b>'), :new_task_list_path, :class => "btn btn-primary" %>
+  <%= link_to 'New Task', new_task_path, :class => "btn btn-primary" %>
 
 <% end %>
 
 <br><br>
 
-<%= link_to 'Back', tasks_path, :class => "btn" %>
+<%= link_to 'Back To Tasks', tasks_path, :class => "btn" %>
