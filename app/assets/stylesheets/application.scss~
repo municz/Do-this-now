@@ -49,6 +49,6 @@ input[type=submit] {
   padding: 7px 10px;
 }
 .task-list {
-  width: 350px;
+  width: 320px;
   height: 200px;
 }

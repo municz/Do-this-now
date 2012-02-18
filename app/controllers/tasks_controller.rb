@@ -41,17 +41,27 @@ class TasksController < ApplicationController
           t.save
           t.priority = t.id
           t.save
-          redirect :tasks, :notice => "Your task list has been saved"
         end
       end       
+      redirect_to :tasks, :notice => "Your task list has been saved"
     else  
       render "new_task_list.html.erb"
     end  
   end
+  
+  def do_tasks
+    if params[:done]
+      task = Task.where(:user_id => current_user.id, :id => params[:done]).first
+      task.done = 1
+      task.save
+    end  
+  
+    @task = Task.where(:user_id => current_user.id, :done => 0).order(:priority).first
+  end
 
   # GET /tasks/1/edit
   def edit
-    @task = Task.where(:id => params[:id].first, :user_id => current_user.id).first
+    @task = Task.where(:id => params[:id], :user_id => current_user.id).first
   end
 
   # POST /tasks

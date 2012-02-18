@@ -1,0 +1,25 @@
+<h1>Handle this, now!</h1>
+
+<% if @task %>
+  <p>
+    <b>Title:</b>
+    <%= @task.title %>
+  </p>
+
+  <br><br>
+
+  <%= link_to 'Done. Next one!', do_tasks_url(:done => @task.id), :class => "btn btn-primary" %>
+
+<% else %>
+
+  <p>No tasks left, bro. Create some.</p>
+  <br><br>
+  
+  <%= link_to 'New Task List', :new_task_list_path, :class => "btn btn-primary" %>
+  <%= link_to 'New Task', new_task_path, :class => "btn" %>
+
+<% end %>
+
+<br><br>
+
+<%= link_to 'Back', tasks_path, :class => "btn" %>

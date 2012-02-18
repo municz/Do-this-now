@@ -1,0 +1,11 @@
+<h1>Handle this, now!</h1>
+
+<p>
+  <b>Title:</b>
+</p>
+
+<%= link_to 'Done. Next one!', do_tasks_url(:done => @task.id), :class => "btn-primary" %>
+
+<br><br>
+
+<%= link_to 'Back', tasks_path, :class => "btn" %>
