@@ -33,7 +33,20 @@ class TasksController < ApplicationController
   end
   
   def new_from_list
-    render "new_task_list.html.erb"
+    if params[:list]
+      params[:list].split(/\n/).each do |task|
+        task = task.strip
+        if task.length > 0
+          t = Task.new(:title => task, :user_id => current_user.id, :done => 0)
+          t.save
+          t.priority = t.id
+          t.save
+          redirect :tasks, :notice => "Your task list has been saved"
+        end
+      end       
+    else  
+      render "new_task_list.html.erb"
+    end  
   end
 
   # GET /tasks/1/edit

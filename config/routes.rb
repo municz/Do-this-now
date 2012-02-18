@@ -10,7 +10,7 @@ Dothisnow::Application.routes.draw do
   
   get "/tasks/:id/move_up", :to => "tasks#move_up", :as => :move_up
   get "/tasks/:id/move_down", :to => "tasks#move_down", :as => :move_down
-  get "/tasks/add-task-list", :to => "tasks#new_from_list", :as => :new_task_list_path
+  match "/tasks/add-task-list", :to => "tasks#new_from_list", :as => :new_task_list_path
   
   resources :tasks
   resources :users
