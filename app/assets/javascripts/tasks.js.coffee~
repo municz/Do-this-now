@@ -1,0 +1,13 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$('.move_up').bind('ajax:success', function() {  
+    var current = $(this).closest('tr'); 
+    var previous = current.previous('tr');
+    
+    var currentHTML = current.html();
+    var previousHTML = previous.html();
+    
+    current.html(previousHTML);
+    previous.html(currentHTML);
+}); 

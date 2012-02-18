@@ -19,26 +19,11 @@ $(document).ready(function(){
     var current = $(this).closest('tr');
     var previous = current.prev('tr');
     
-    if (previous.length) {
-      var currentHTML = current.html();
-      var previousHTML = previous.html();
-      
-      current.html(previousHTML);
-      previous.html(currentHTML);
-    }
-  });
-
-  $('.move_down').live('ajax:success', function(){
-    var current = $(this).closest('tr');
-    var next = current.next('tr');
+    var currentHTML = current.html();
+    var previousHTML = previous.html();
     
-    if (next.length) {
-      var currentHTML = current.html();
-      var nextHTML = next.html();
-      
-      current.html(nextHTML);
-      next.html(currentHTML);
-    }   
+    current.html(previousHTML);
+    previous.html(currentHTML);
   });
 
 });

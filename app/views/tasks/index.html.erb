@@ -14,8 +14,8 @@
 
 <% @tasks.each do |task| %>
   <tr <%= raw('class="done"') if task.done? %>>
-    <td><%= link_to "[UP]", move_up_url(:id => task.id) %></td>
-    <td><%= link_to "[DOWN]", move_down_url(:id => task.id) %></td>
+    <td><%= link_to "[UP]", move_up_url(:id => task.id), :remote => true, :class => "move_up" %></td>
+    <td><%= link_to "[DOWN]", move_down_url(:id => task.id), :remote => true, :class => "move_down" %></td>
     <td><%= task.priority %></td>
     <td><%= task.title %></td>
     <td><%= task.done? ? "[YES]" : "[NO]" %></td>
