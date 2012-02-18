@@ -12,8 +12,28 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 $(document).ready(function(){
+
+  var swapDone = function(tr1, tr2){
+      var tr1IsDone = tr1.hasClass('done');
+      var tr2IsDone = tr2.hasClass('done');
+  
+      if (tr1IsDone) {
+        tr2.addClass('done');
+      }
+      else {
+        tr2.removeClass('done');
+      }
+      
+      if (tr2IsDone) {
+        tr1.addClass('done');
+      }
+      else {
+        tr1.removeClass('done');
+      }
+  };
   
   $('.move_up').live('ajax:success', function(){
     var current = $(this).closest('tr');
@@ -21,10 +41,12 @@ $(document).ready(function(){
     
     if (previous.length) {
       var currentHTML = current.html();
-      var previousHTML = previous.html();
+      var previousHTML = previous.html();      
       
       current.html(previousHTML);
       previous.html(currentHTML);
+      
+      swapDone(previous, current);
     }
   });
 
@@ -38,6 +60,8 @@ $(document).ready(function(){
       
       current.html(nextHTML);
       next.html(currentHTML);
+
+      swapDone(next, current);
     }   
   });
 

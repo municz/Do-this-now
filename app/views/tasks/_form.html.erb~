@@ -13,21 +13,19 @@
 
   <% if @task.id %>
     <div class="field">
-      <%= f.label :priority %><br />
+      <%= f.label :priority %>
       <%= f.number_field :priority %>
     </div>
-  <% else %>
-    <%= f.hidden_field :priority, :value => 0 %>
   <% end %>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :done %><br />
+    <%= f.label :done %>
     <%= f.check_box :done %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit, :class => "btn-primary" %>
   </div>
 <% end %>

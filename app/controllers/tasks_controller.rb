@@ -31,6 +31,10 @@ class TasksController < ApplicationController
       format.json { render json: @task }
     end
   end
+  
+  def new_from_list
+    render "new_task_list.html.erb"
+  end
 
   # GET /tasks/1/edit
   def edit

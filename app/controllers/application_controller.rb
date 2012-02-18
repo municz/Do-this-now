@@ -18,10 +18,12 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate!
+    flash[:error] = "You must authenticate to pass this point."
     redirect_to :sign_in_path unless signed_in?
   end
   
   def authorize_admin!
+    flash[:error] = "Unauthorized access. Please authenticate."
     redirect_to :sign_in_path unless is_admin?
   end
 

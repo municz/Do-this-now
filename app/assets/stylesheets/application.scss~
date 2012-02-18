@@ -1,11 +1,14 @@
+$baseFontSize: 16px;
+
+body {
+  padding-top: 60px;
+}
+
 @import 'bootstrap';
 @import "bootstrap-responsive";
 
-$primaryButtonBackground: #ff0000 !default;
-$baseFontSize: 15px;
-
-body {
-  padding: 30px;
+h1 {
+  padding: 15px 0;
 }
 label {
   display: inline-block;
@@ -14,17 +17,38 @@ label {
   top: -5px;
   width: 100px;
 }
-h1 {
-  padding: 10px 0;
-}
 input[type=submit] {
-  margin-left: 120px;
+  margin-left: 110px;
 }
-
 .listing td, .listing th {
   border: 1px #ddd solid;
-  padding: 5px;
+  padding: 8px;
+}
+.listing th {
+  background-color: #eee;
 }
 .done {
-  color: #888;
+  color: #aaa;
+  background-color:#f3f3f3;
+}
+.move_up, .move_down {
+  background: url('/images/down_icon.png') 4px 5px no-repeat;
+  padding: 20px 0 0 20px;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  display: block;
+}
+.move_up {
+  background-image: url('/images/up_icon.png');
+}
+.task-status {
+  text-align: center;
+}
+.btn-primary {
+  padding: 7px 10px;
+}
+.task-list {
+  width: 350px;
+  height: 200px;
 }

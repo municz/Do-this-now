@@ -9,7 +9,7 @@ class HelloController < ApplicationController
     if user 
       session[:user_id] = user.id 
       session[:user_is_admin] = user.is_admin
-      redirect_to :sign_in_path
+      redirect_to :home_path
     else
       flash[:error] = "Incorrect credentials!"
       redirect_to :sign_in_path

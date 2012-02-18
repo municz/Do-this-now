@@ -1,0 +1,11 @@
+<h1>Create new task list</h1>
+
+<%= form_tag do %>
+<p>Separate each task with a new line.</p>
+<%= text_area_tag :list, "task1\ntask2", :class => "task-list", :onclick => "this.select()" %><br> 
+<%= submit_tag "Create 'em!", :class => "btn-primary" %>
+<% end %>
+
+<br />
+
+<%= link_to 'Back', :tasks, :class => "btn" %>

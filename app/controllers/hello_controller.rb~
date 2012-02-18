@@ -16,5 +16,13 @@ class HelloController < ApplicationController
     end  
       
   end
+  
+  def logout
+  
+    session[:user_id] = nil
+    session[:user_is_admin] = nil
+    redirect_to :sign_in_path
+  
+  end
 
 end

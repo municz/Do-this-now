@@ -31,6 +31,10 @@ class TasksController < ApplicationController
       format.json { render json: @task }
     end
   end
+  
+  def new_from_list
+    render "new_task_list.html"
+  end
 
   # GET /tasks/1/edit
   def edit
@@ -92,7 +96,8 @@ class TasksController < ApplicationController
   
   def move_up
     @task = Task.where(:id => params[:id], :user_id => current_user.id).first
-    @task.move_up  
+    @task.move_up
+    @task.save  
     
     redirect_to :tasks
   end

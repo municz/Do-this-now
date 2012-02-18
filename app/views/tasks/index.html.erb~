@@ -1,24 +1,25 @@
-<h1>Listing tasks</h1>
+<h1>Listing current tasks</h1>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th>Priority</th>
+<table class="listing">
+  <thead>
+    <th colspan="2">Priority</th>
     <th>Title</th>
     <th>Done</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <th colspan="3">Actions</th>
+  </thead>
 
 <% @tasks.each do |task| %>
   <tr <%= raw('class="done"') if task.done? %>>
-    <td><%= link_to "[UP]", move_up_url(:id => task.id), :remote => true %></td>
-    <td><%= link_to "[DOWN]", move_down_url(:id => task.id), :remote => true %></td>
-    <td><%= task.priority %></td>
+    <td><%= link_to "[UP]", move_up_url(:id => task.id), :remote => true, :class => "move_up" %></td>
+    <td><%= link_to "[DOWN]", move_down_url(:id => task.id), :remote => true, :class => "move_down" %></td>
     <td><%= task.title %></td>
-    <td><%= task.done? ? "[YES]" : "[NO]" %></td>
+    <td class="task-status">
+      <% if task.done? %>
+        <img src="/images/done.png" alt="[YES]" title="Yes">
+      <% else %>
+        <img src="/images/pending.png" alt="[NO]" title="No">
+      <% end %>
+    </td>
     <td><%= link_to 'Show', task %></td>
     <td><%= link_to 'Edit', edit_task_path(task) %></td>
     <td><%= link_to 'Destroy', task, confirm: 'Are you sure?', method: :delete %></td>
@@ -29,3 +30,4 @@
 <br />
 
 <%= link_to 'New Task', new_task_path %>
+<%= link_to 'New Task List', :new_task_list_path %>

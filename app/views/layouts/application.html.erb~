@@ -8,11 +8,31 @@
 </head>
 <body>
 
-<%= link_to "Login", :sign_in_path unless signed_in? %>
-<%= link_to "Users", :users if is_admin? %>
-<%= link_to "Logout", :logout_path if signed_in? %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <%= link_to "Do this now!", :home_path, :class => "brand" %>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li<%= raw(' class="active"') if request.url == :sign_in_path %>><%= link_to "Login", :sign_in_path unless signed_in? %></li>
+          <li><%= link_to "Tasks", :tasks if signed_in? %></li>
+          <li><%= link_to "New task list", :new_task_list_path if signed_in? %></li>
+          <li><%= link_to "Users", :users if is_admin? %></li>
+          <li><%= link_to "Logout", :logout_path if signed_in? %></li>
+        </ul>  
+      </div>
+    </div>  
+  </div>  
+</div>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>  
 
 </body>
 </html>
