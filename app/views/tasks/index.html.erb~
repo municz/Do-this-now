@@ -15,9 +15,9 @@
     <td><%= task.title %></td>
     <td class="task-status">
       <%= link_to_if(task.done?, raw('<img src="/images/done.png" alt="[YES]" title="Yes">'),
-                     toggle_status_url(:id => task.id), :remote => true) do
+                     toggle_status_url(:id => task.id), :remote => true, :class => "toggle_status" ) do
                        link_to(raw('<img src="/images/pending.png" alt="[NO]" title="No">'),
-                       toggle_status_url(:id => task.id), :remote => true)
+                       toggle_status_url(:id => task.id), :remote => true, :class => "toggle_status" )
           end
       %>    
     </td>
@@ -30,7 +30,7 @@
 
 <br />
 
-<%= link_to 'Now I will Handle My Sh*t!', :do_tasks, :class => "btn btn-primary" %>
+<%= link_to "Bring dem tasks on!", :do_tasks, :class => "btn btn-primary" %>
 
 <br><br>
 
